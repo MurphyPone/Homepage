@@ -1,0 +1,228 @@
+@font-face {
+  font-family: 'Jaapokki';
+  src: url('fonts/Jaapokki-Regular.otf'), url('/fonts/Jaapokki-Regular.otf');
+}
+
+@font-face {
+  font-family: 'LemonMilk';
+  src: url('fonts/LemonMilkbold.otf'), url('/fonts/LemonMilkbold.otf');
+}
+
+:root { /*declare color vars for use elsewhere */
+	--offwhite: #f9f9f9; /* offwhite */
+  --hackbi: #fc4d45;  /* red */
+  --love2d: #e74a99; /* pink */
+  --third-color: #ff9340;  /* Orange */
+	--complement-color: rgb(180, 180, 180);  /* Gray */
+	--subtle-font-color: #888;
+}
+
+.html {
+  font-family: Metrophobic;
+  font-size: 1em;
+}
+
+.grid {
+  text-align: center;
+  display: grid;
+  justify-items: stretch;
+  align-items: stretch;
+  justify-content: space-evenly;
+  align-items: stretch;
+  border-radius: 20px;
+  grid-auto-columns: 1fr 1fr 1fr 1fr; /* 4 columns of equal size */
+  grid-template-rows: auto auto auto; /* 3 rows */
+  grid-template-areas:
+  "about"
+  "slot1"
+  "slot2"
+  "slot3"
+  "slot4"
+  "slot5"
+  "slot6"
+  "slot7"
+  "slot8"
+  "slot9"
+  "footer";
+  grid-column-gap: 5px;
+  grid-row-gap: 5px;
+
+}
+/*change border color on hover */
+.about {
+  grid-area: about;
+  background: white;
+  font-family: Metrophobic;
+  font-size: 20px;
+  align-self: center;
+  border-radius: 20px;
+  border-style: solid;
+  border-color: black;
+  padding: 10px;
+}
+
+.hackbi {
+  grid-area: slot1;
+  background: var(--hackbi);
+  color: white;
+  font-family: Jaapokki;
+  font-size: 4vw;
+  justify-content: center;
+  border-radius: 20px;
+  border-style: solid;
+  border-color: black;
+  padding: 10px;
+}
+
+.hackital {
+  grid-area: slot2;
+  background: black;  /* black and hackital logo */
+  color: white;
+  font-family: LemonMilk;
+  font-size: 3vw;
+  justify-content: center;
+  border-radius: 20px;
+  border-style: solid;
+  border-color: black;
+  padding: 10px;
+}
+
+.hacktj {
+  grid-area: slot3;
+  background: var(--hackbi);
+  color: white;
+  font-family: Jaapokki;
+  font-size: 4vw;
+  justify-content: center;
+  border-radius: 20px;
+  border-style: solid;
+  border-color: black;
+  padding: 10px;
+}
+
+.love2d {
+  grid-area: slot4;
+  background: var(--love2d);
+  color: white;
+  font-family: Jaapokki;
+  font-size: 2vw;
+
+  justify-content: center;
+  border-radius: 20px;
+  border-style: solid;
+  border-color: black;
+  padding: 10px;
+}
+
+.java {
+  grid-area: slot5;
+  background: var(--hackbi);
+  color: white;
+  font-family: Jaapokki;
+  font-size: 2vw;
+
+  justify-content: center;
+  border-radius: 20px;
+  border-style: solid;
+  border-color: black;
+  padding: 10px;
+}
+
+.youtube {
+  grid-area: slot6;
+  background: var(--hackbi);
+  color: white;
+  font-family: Jaapokki;
+  font-size: 4vw;
+
+  justify-content: center;
+  border-radius: 20px;
+  border-style: solid;
+  border-color: black;
+  padding: 10px;
+}
+
+.graphic-design {
+  grid-area: slot7;
+  background: var(--hackbi);
+  color: white;
+  font-family: Jaapokki;
+  font-size: 2vw;
+
+  justify-content: center;
+  border-radius: 20px;
+  border-style: solid;
+  border-color: black;
+  padding: 10px;
+}
+
+.p5-js {
+  grid-area: slot8;
+  background: var(--hackbi);
+  color: white;
+  font-family: Jaapokki;
+  font-size: 4vw;
+  justify-content: center;
+  border-radius: 20px;
+  border-style: solid;
+  border-color: black;
+  padding: 10px;
+}
+
+.postfix-calc {
+  grid-area: slot9;
+  background: var(--hackbi);
+  color: white;
+  font-family: Jaapokki;
+  font-size: 2vw;
+  justify-content: center;
+  border-radius: 20px;
+  border-style: solid;
+  border-color: black;
+  padding: 10px;
+}
+
+.footer {
+  grid-area: footer;
+  background: var(--hackbi);
+  color: white;
+  font-family: Jaapokki;
+  font-size: 2vw;
+
+  justify-content: center;
+  border-radius: 20px;
+  border-style: solid;
+  border-color: black;
+  padding: 10px;
+}
+
+/* content stuff */
+.HackitalLogo {
+  align-self: center;
+}
+
+
+/* build for mobile, and adapt for desktop */
+@media screen and (min-width: 34em) {
+  .grid {
+    grid-auto-columns: 1fr;
+    grid-template-areas:
+    "about slot1 slot2 slot3"
+    "about slot4 slot5 slot6"
+    "footer slot7 slot8 slot9"  /* for desktop */
+  }
+
+/* general stuff */
+a:link {
+    color: white;
+    text-decoration: none;
+}
+
+a:visited {
+    color: white;
+}
+
+a:hover { /*on hover, animate gradient? or the swoosh? */
+    color: yellow;
+    text-decoration: none;
+}
