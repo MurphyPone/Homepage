@@ -1,3 +1,4 @@
+/* import custom fonts */
 @font-face {
   font-family: 'Jaapokki';
   src: url('fonts/Jaapokki-Regular.otf'), url('/fonts/Jaapokki-Regular.otf');
@@ -8,6 +9,7 @@
   src: url('fonts/LemonMilkbold.otf'), url('/fonts/LemonMilkbold.otf');
 }
 
+/* define colors */
 :root { /*declare color vars for use elsewhere */
 	--offwhite: #f9f9f9; /* offwhite */
   --hackbi: #fc4d45;  /* red */
@@ -25,7 +27,6 @@
 .grid {
   text-align: center;
   display: grid;
-  justify-items: stretch;
   align-items: stretch;
   justify-content: space-evenly;
   align-items: stretch;
@@ -78,9 +79,8 @@
   grid-area: slot2;
   background: black;  /* black and hackital logo */
   color: white;
-  font-family: LemonMilk;
   font-size: 3vw;
-  justify-content: center;
+  margin-top: stretch;
   border-radius: 20px;
   border-style: solid;
   border-color: black;
@@ -196,11 +196,9 @@
   padding: 10px;
 }
 
-/* content stuff */
+/* content stuff
 .HackitalLogo {
-  align-self: center;
-}
-
+} */
 
 /* build for mobile, and adapt for desktop */
 @media screen and (min-width: 34em) {
