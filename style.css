@@ -75,7 +75,7 @@
   grid-area: slot2;
   background: black;  /* black and hackital logo */
   color: white;
-  font-size: 3vw;
+  display: inline-block;
   border-radius: 15px;
   border-style: solid;
   border-color: black;
@@ -95,8 +95,8 @@
   padding: 5px;
 }
 .postfix-calc:hover {
-  font-size: 2.2vw;
-  padding: 6px;
+  box-shadow: 5px 10px #888888;
+  z-index: 1;
 }
 
 .hacktj {
