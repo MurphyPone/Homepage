@@ -26,11 +26,11 @@
 
 .grid {
   display: grid;
-  width: 110%;
+  width: 100%;
   height: 100%;
   text-align: center; /* aligns the text of all componenets */
   justify-items: stretch;
-  grid-template-columns: 1fr 1fr 1fr ; /* 4 columns of equal size */
+  grid-template-columns: 1fr;
   grid-template-rows: repeat(1fr 9);
   grid-template-areas:
   "about"
@@ -78,33 +78,35 @@
 .hackital {
   grid-area: slot2;
   background: black;  /* black and hackital logo */
-  align-self: stretch; /* makes the div fill its grid spot */
+  align-self: center;
   border-radius: 5px;
   border-style: solid;
   border-color: black;
   /*transition: padding-top 1s;  fun but too destructive */
 }
-
 .hackital:hover {
 }
 
 .postfix-calc {
   grid-area: slot3;
-  background-color: orange;
+  background: orange;
   color: white;
   font-family: Jaapokki;
   font-size: 2vw;
+  padding: 5px;
   align-self: stretch;
   border-radius: 5px;
   border-style: solid;
   border-color: black;
-  padding: 5px;
   transition: color .5s;
   transition: background-color .5s;
 }
 .postfix-calc:hover {
   background: white;
   color: orange;
+}
+#expression {
+  font-family: Metrophobic;
 }
 
 .hacktj {
@@ -165,8 +167,8 @@
 
 .graphic-design {
   grid-area: slot8;
-  background: var(--hackbi);
-  color: white;
+  background-image: url("http://i.imgur.com/uujoS2S.gif"); /* http://i.imgur.com/uujoS2S.gif */
+  color: rgb(147, 127, 74); /* make a gif of arrows or something original */
   font-family: Jaapokki;
   font-size: 2vw;
   align-self: stretch;
@@ -198,17 +200,61 @@
   border-style: solid;
   border-color: black;
 }
+.fa {
+  color: gray;
+  text-decoration: none;
+  font-size: 4vw;
+  padding: 5px;
+}
 
-/* content stuff */
+.fa:hover {
+    opacity: 0.7;
+    text-decoration: none;
+}
 
-/* build for mobile, and adapt for desktop */
-@media screen and (min-width: 1000px) {
+/* Desktop adjustments */
+@media screen and (min-width: 1200px) {
   .grid {
     width: 100%;
-    height: 100%;
+    height: auto;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
     grid-template-areas:
     "about slot1 slot2 slot3"
     "about slot4 slot5 slot6"
     "footer slot7 slot8 slot9"  /* for desktop */
   }
+  .hackital { /* this actually seems to be fairly destructive :( */
+    padding-top: 30%;
+    padding-bottom: 30%;
+  }
+}
+
+/* Mobile overrides */
+@media screen and (max-width: 767px) {
+  .grid {
+    grid-template-columns: 1fr; /* 4 columns of equal size */
+    grid-template-rows: repeat(1fr 9);
+    grid-template-areas:
+    "about"
+    "slot1"
+    "slot2"
+    "slot3"
+    "slot4"
+    "slot5"
+    "slot6"
+    "slot7"
+    "slot8"
+    "slot9"
+    "footer";
+  }
+
+  .hackital {
+    padding-top: auto;
+    padding-bottom: auto; /*squeeze that joint in on mobile */
+  }
+
+  #expression { /*hide the expression on mobile */
+    display: none;
+  }
+}
