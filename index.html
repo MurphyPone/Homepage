@@ -7,37 +7,46 @@
   <link href="https://fonts.googleapis.com/css?family=Metrophobic" rel="stylesheet">
   <link rel="icon" href="img/icon.PNG">
   <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
   <title> Peter Murphy's Homepage </title>
 </head>
 <body style="background-color: var(--offwhite);">
   <div class="grid">
+
     <div class="about">
       <h1> About Me </h1>
-      <img src="http://hackbi.org/img/peter.jpeg" alt="Profile Image" style="width:400px;height:auto;">
-      <p> Hi! My name is Peter Murphy and this is my website! </h1>
+      <img src="http://hackbi.org/img/peter.jpeg" alt="Profile Image" style="width:300px;height:auto;">
+      <p> Hi! My name is Peter Murphy and this is my website! </p>
     </div>
-    <div class="hackbi">
-      <a href="http://hackbi.org/">Hack BI</a>
+
+    <div class="hackbi" onclick="window.open('http://hackbi.org/');">
+      <h4>Hack BI</h4>
     </div>
-    <div class="hackital">
-      <a href="https://murphypone.github.io/Hackital/">
-        <img id="HackitalLogo" src="imgs/HackitalLogo.png" alt="Hackital 2017 Logo" style="width:auto;height:100px;">
-      </a>
-      <p align="left" style="font-family:LemonMilk;font-size:12px;">A collegiate level hackathon hosted at George Washington University in Washington, D.C.  Our team of four made a web-app which integrates several stock/crypto currency APIs in order to compare prices of various stocks to the current price of BitCoin.  Backend implementation which matches keywords in news articles from sources including bloomberg, The New York Times, and Forbes gives scores based off of the context of the </p>
+
+    <div class="hackital" onclick="window.open('https://murphypone.github.io/Hackital/')">
+      <img id="HackitalLogo" src="imgs/HackitalLogo.png" alt="Hackital 2017" style="width:auto;height:60px;">
     </div>
-    <div class="hacktj"> HackTJ </div>
-    <div class="love2d">
-        <a href="https://github.com/MurphyPone/LUA-Love2D">Love2D Projects</a>
+
+    <div class="hacktj">slot???</div>
+
+    <div class="love2d" onclick="window.open('https://github.com/MurphyPone/LUA-Love2D');">
+      <h3>Love2D Projects</h3>
     </div>
-    <div class="java"> Java Projects </div>
-    <div class="youtube"> Youtube </div>
+
+    <div class="java">Java Projects</div>
+
+    <div class="youtube" onclick="window.open('https://www.youtube.com/user/Plotsmurphy');" >
+      <img id="YouTubeLogo" src="imgs/YouTubeLogo.png" alt="Youtube" style="width:300px;height:auto;">
+    </div>
+
     <div class="graphic-design"> Graphic Design </div>
     <div class="p5-js"> p5.js </div>
-    <div class="postfix-calc">
-      <a href="https://murphypone.github.io/postFixCalculator/">postFix Expression Calculator</a>
+
+    <div class="postfix-calc" onclick="window.open('https://murphypone.github.io/postFixCalculator/');">
+      <h3>Postfix Expression Calculator</h3>
     </div>
-    
-    <div class="footer"> Report a Problem </div>
+
+    <div class="footer">Report a Problem</div>
   </div>
 </body>
 </html>
