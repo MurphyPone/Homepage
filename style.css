@@ -13,10 +13,10 @@
 :root { /*declare color vars for use elsewhere */
 	--offwhite: #f9f9f9; /* offwhite */
   --hackbi: #fc4d45;  /* red */
+  --hacktj: #1faff1;  /* blue */
   --love2d: #e74a99; /* pink */
-  --third-color: #ff9340;  /* Orange */
+  --l-orange: #ff9340;  /* Orange */
 	--very-dark-grey: rgb(51, 51, 51);  /* Gray */
-	--subtle-font-color: #888;
 }
 
 .html {
@@ -26,10 +26,10 @@
 
 .grid {
   display: grid;
-  width: 1200px;
-  text-align: center;
-  align-items: stretch;
-  border-radius: 20px;
+  width: 110%;
+  height: 100%;
+  text-align: center; /* aligns the text of all componenets */
+  justify-items: stretch;
   grid-template-columns: 1fr 1fr 1fr ; /* 4 columns of equal size */
   grid-template-rows: repeat(1fr 9);
   grid-template-areas:
@@ -51,9 +51,8 @@
   grid-area: about;
   background: white;
   font-family: Metrophobic;
-  font-size: 20px;
-  align-self: center;
-  border-radius: 15px;
+  align-self: stretch;
+  border-radius: 5px;
   border-style: solid;
   border-color: black;
   padding: 5px;
@@ -65,48 +64,57 @@
   color: white;
   font-family: Jaapokki;
   font-size: 4vw;
-  border-radius: 15px;
+  border-radius: 5px;
   border-style: solid;
   border-color: black;
   padding: 5px;
+  align-self: stretch;
+}
+
+#hackbi:hover {
+  color: orange;
 }
 
 .hackital {
   grid-area: slot2;
   background: black;  /* black and hackital logo */
-  color: white;
-  display: inline-block;
-  border-radius: 15px;
+  align-self: stretch; /* makes the div fill its grid spot */
+  border-radius: 5px;
   border-style: solid;
   border-color: black;
-  padding: 5px;
+  /*transition: padding-top 1s;  fun but too destructive */
+}
+
+.hackital:hover {
 }
 
 .postfix-calc {
   grid-area: slot3;
-  background: orange;
+  background-color: orange;
   color: white;
   font-family: Jaapokki;
   font-size: 2vw;
-  justify-content: center;
-  border-radius: 15px;
+  align-self: stretch;
+  border-radius: 5px;
   border-style: solid;
   border-color: black;
   padding: 5px;
+  transition: color .5s;
+  transition: background-color .5s;
 }
 .postfix-calc:hover {
-  box-shadow: 5px 10px #888888;
-  z-index: 1;
+  background: white;
+  color: orange;
 }
 
 .hacktj {
   grid-area: slot4;
-  background: var(--hackbi);
+  background: var(--hacktj);
   color: white;
   font-family: Jaapokki;
   font-size: 4vw;
-  justify-content: center;
-  border-radius: 15px;
+  align-self: stretch;
+  border-radius: 5px;
   border-style: solid;
   border-color: black;
   padding: 5px;
@@ -118,8 +126,8 @@
   color: white;
   font-family: Jaapokki;
   font-size: 2vw;
-  justify-content: center;
-  border-radius: 15px;
+  align-self: stretch;
+  border-radius: 5px;
   border-style: solid;
   border-color: black;
   padding: 5px;
@@ -131,8 +139,8 @@
   color: white;
   font-family: Jaapokki;
   font-size: 2vw;
-  justify-content: center;
-  border-radius: 15px;
+  align-self: stretch;
+  border-radius: 5px;
   border-style: solid;
   border-color: black;
   padding: 5px;
@@ -144,8 +152,8 @@
   color: white;
   font-family: Jaapokki;
   font-size: 4vw;
-  justify-content: center;
-  border-radius: 15px;
+  align-self: stretch;
+  border-radius: 5px;
   border-style: solid;
   border-color: black;
   padding: 5px;
@@ -161,8 +169,8 @@
   color: white;
   font-family: Jaapokki;
   font-size: 2vw;
-  justify-content: center;
-  border-radius: 15px;
+  align-self: stretch;
+  border-radius: 5px;
   border-style: solid;
   border-color: black;
   padding: 5px;
@@ -174,8 +182,8 @@
   color: white;
   font-family: Jaapokki;
   font-size: 4vw;
-  justify-content: center;
-  border-radius: 15px;
+  align-self: stretch;
+  border-radius: 5px;
   border-style: solid;
   border-color: black;
   padding: 5px;
@@ -183,43 +191,24 @@
 
 .footer {
   grid-area: footer;
-  background: var(--hackbi);
-  color: white;
-  font-family: Jaapokki;
-  font-size: 2vw;
-  justify-content: center;
-  border-radius: 15px;
+  background: var(--offwhite);
+  color: black;
+  font-family: Metrophobic;
+  border-radius: 5px;
   border-style: solid;
   border-color: black;
-  padding: 5px;
 }
 
-/* content stuff
-.HackitalLogo {
-} */
+/* content stuff */
 
 /* build for mobile, and adapt for desktop */
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1000px) {
   .grid {
+    width: 100%;
+    height: 100%;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
     grid-template-areas:
     "about slot1 slot2 slot3"
     "about slot4 slot5 slot6"
     "footer slot7 slot8 slot9"  /* for desktop */
   }
-
-/* general stuff */
-a:link {
-    color: white;
-    text-decoration: none;
-}
-
-a:visited {
-    color: white;
-}
-
-a:hover { /*on hover, animate gradient? or the swoosh? */
-    color: yellow;
-    text-decoration: none;
-}
