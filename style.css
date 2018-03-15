@@ -1,4 +1,25 @@
-/* import custom fonts */
+/* GRID ANIMATION SETUP */
+@keyframes fade-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes grow-left {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* CUSTOM FONTs */
 @font-face {
   font-family: 'Jaapokki';
   src: url('fonts/Jaapokki-Regular.otf'), url('/fonts/Jaapokki-Regular.otf');
@@ -9,7 +30,7 @@
   src: url('fonts/LemonMilkbold.otf'), url('/fonts/LemonMilkbold.otf');
 }
 
-/* define colors */
+/* CUSTOM COLOR VARIABLES */
 :root { /*declare color vars for use elsewhere */
 	--offwhite: #f9f9f9; /* offwhite */
   --hackbi: #fc4d45;  /* red */
@@ -24,12 +45,12 @@
   font-size: 1em;
 }
 
+/* GRID */
 .grid {
   display: grid;
   width: 100%;
   height: 100%;
   text-align: center; /* aligns the text of all componenets */
-  justify-items: stretch;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(1fr 9);
   grid-template-areas:
@@ -45,8 +66,16 @@
   "slot9"
   "footer";
   grid-gap: 5px;
+
+  /* this is so extra but I love it hahahahahah */
+  /* https://hackernoon.com/how-to-create-fancy-revealing-animations-with-these-simple-css-tricks-5b34614ae69a */
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: grow-left cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.5s forwards;
+  animation-delay: 0.4s;
 }
-/*change border color on hover */
+
+/* ABOUT */
 .about {
   grid-area: about;
   background: white;
@@ -56,8 +85,20 @@
   border-style: solid;
   border-color: black;
   padding: 5px;
+
+  background: linear-gradient(white, white 50%, #332171 50%, #332171);
+  background-size: 100% 200%;
+  transition: all 0.2s ease;
 }
 
+.about:hover {
+  background-position: 100% 100%;
+  color: white;
+  /* border-color: #e37070; */
+  /* border-width: 5px; shuffles content unnecesarily */
+}
+
+/* HACKBI */
 .hackbi {
   grid-area: slot1;
   background: var(--hackbi);
@@ -67,25 +108,32 @@
   border-radius: 5px;
   border-style: solid;
   border-color: black;
-  padding: 5px;
   align-self: stretch;
+  cursor: default;
 }
 
 #hackbi:hover {
   color: orange;
 }
 
+/* HACKITAL TILE */
+
 .hackital {
+  padding-top: 10px;
+  transition: padding-top 1s;
+
+}
+
+.fill { /*work around to center img */
+  align-self: stretch;
   grid-area: slot2;
   background: black;  /* black and hackital logo */
-  align-self: center;
   border-radius: 5px;
   border-style: solid;
   border-color: black;
-  /*transition: padding-top 1s;  fun but too destructive */
 }
-.hackital:hover {
-}
+
+/* POSTFIX TILE */
 
 .postfix-calc {
   grid-area: slot3;
@@ -101,10 +149,7 @@
   transition: color .5s;
   transition: background-color .5s;
 }
-.postfix-calc:hover {
-  background: white;
-  color: orange;
-}
+
 #expression {
   font-family: Metrophobic;
 }
@@ -133,11 +178,12 @@
   border-style: solid;
   border-color: black;
   padding: 5px;
+  cursor: default;
 }
 
 .java {
   grid-area: slot6;
-  background: var(--hackbi);
+  background: #680c80; /*eclipse purple??? */
   color: white;
   font-family: Jaapokki;
   font-size: 2vw;
@@ -161,10 +207,6 @@
   padding: 5px;
 }
 
-.youtube:hover{ /*do some effect like this on all divs */
-  border-color: yellow;
-}
-
 .graphic-design {
   grid-area: slot8;
   background-image: url("http://i.imgur.com/uujoS2S.gif"); /* http://i.imgur.com/uujoS2S.gif */
@@ -176,6 +218,7 @@
   border-style: solid;
   border-color: black;
   padding: 5px;
+  cursor: default;
 }
 
 .p5-js {
@@ -200,6 +243,8 @@
   border-style: solid;
   border-color: black;
 }
+
+/* ICONS */
 .fa {
   color: gray;
   text-decoration: none;
@@ -212,21 +257,39 @@
     text-decoration: none;
 }
 
+/* COMPATIBILITY */
+
 /* Desktop adjustments */
 @media screen and (min-width: 1200px) {
   .grid {
     width: 100%;
     height: auto;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: 220px 220px 220px;
     grid-template-areas:
     "about slot1 slot2 slot3"
     "about slot4 slot5 slot6"
     "footer slot7 slot8 slot9"  /* for desktop */
+    /* manually set height to 311 x 280 or even a smaller height */
   }
-  .hackital { /* this actually seems to be fairly destructive :( */
+
+  .fill:hover .hackital {
+    padding-top: 145px;
+  }
+
+  /* this doesn't work... maybe use icons instead?*/
+  .youtube {
     padding-top: 30%;
     padding-bottom: 30%;
+  }
+
+  .youtube:hover{ /*do some effect like this on all divs */
+    border-color: yellow;
+  }
+
+  .postfix-calc:hover {
+    background: white;
+    color: orange;
   }
 }
 
@@ -249,12 +312,8 @@
     "footer";
   }
 
-  .hackital {
-    padding-top: auto;
-    padding-bottom: auto; /*squeeze that joint in on mobile */
-  }
-
   #expression { /*hide the expression on mobile */
     display: none;
   }
+
 }
