@@ -300,7 +300,7 @@
 
 
 /* Tall Desktop */
-@media screen and (min-height: 1000px) {
+@media screen and (min-height: 700px) {
   .grid {
     width: 100%;
     height: auto;
@@ -335,5 +335,4 @@
   #expression { /*hide the expression on mobile */
     display: none;
   }
-
 }
