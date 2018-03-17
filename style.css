@@ -234,7 +234,6 @@
   border-radius: 5px;
   border-style: solid;
   border-color: black;
-  padding: 5px;
 }
 
 .footer {
@@ -268,7 +267,7 @@
     width: 100%;
     height: auto;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 220px 220px 220px;
+    grid-template-rows: 1fr 1fr 1fr; /*220 = no scrolling, but causes compatibility issues... */
     grid-template-areas:
     "about slot1 slot2 slot3"
     "about slot4 slot5 slot6"
@@ -297,21 +296,6 @@
     padding-top: 100px;
   }
 }
-
-
-/* Tall Desktop */
-@media screen and (min-height: 700px) {
-  .grid {
-    width: 100%;
-    height: auto;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 300px 300px 300px;
-    grid-template-areas:
-    "about slot1 slot2 slot3"
-    "about slot4 slot5 slot6"
-    "footer slot7 slot8 slot9"  /* for desktop */
-    /* manually set height to 311 x 280 or even a smaller height */
-  }
 
 /* Mobile overrides */
 @media screen and (max-width: 767px) {
