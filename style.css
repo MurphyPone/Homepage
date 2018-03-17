@@ -121,7 +121,6 @@
 .hackital {
   padding-top: 10px;
   transition: padding-top 1s;
-
 }
 
 .fill { /*work around to center img */
@@ -194,18 +193,26 @@
   padding: 5px;
 }
 
+/* YOUTUBE STUFF */
+
 .youtube {
   grid-area: slot7;
   background: var(--very-dark-grey);
   color: white;
-  font-family: Jaapokki;
-  font-size: 4vw;
+  font-family: LemonMilk;
+  font-size: 2vw;
   align-self: stretch;
+  text-align: center;
   border-radius: 5px;
   border-style: solid;
   border-color: black;
   padding: 5px;
 }
+
+.youtube:hover #youtube {
+  color: #7ae9f0;
+}
+
 
 .graphic-design {
   grid-area: slot8;
@@ -277,19 +284,18 @@
     padding-top: 145px;
   }
 
-  /* this doesn't work... maybe use icons instead?*/
-  .youtube {
-    padding-top: 30%;
-    padding-bottom: 30%;
-  }
-
-  .youtube:hover{ /*do some effect like this on all divs */
-    border-color: yellow;
-  }
-
   .postfix-calc:hover {
     background: white;
     color: orange;
+  }
+
+  #youtube {
+    transition: padding-top 1s;
+  }
+
+  .youtube:hover #youtube {
+    color: #7ae9f0;
+    padding-top: 100px;
   }
 }
 
