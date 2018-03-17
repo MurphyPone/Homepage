@@ -209,10 +209,6 @@
   padding: 5px;
 }
 
-.youtube:hover #youtube {
-  color: #7ae9f0;
-}
-
 
 .graphic-design {
   grid-area: slot8;
@@ -284,6 +280,9 @@
     padding-top: 145px;
   }
 
+  .postfix-calc {
+    font-size: 2vw;
+  }
   .postfix-calc:hover {
     background: white;
     color: orange;
