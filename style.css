@@ -153,18 +153,27 @@
   font-family: Metrophobic;
 }
 
-.hacktj {
+.PDocs {
   grid-area: slot4;
   background: var(--hacktj);
   color: white;
-  font-family: Jaapokki;
-  font-size: 4vw;
+  font-family: Courier;
   align-self: stretch;
   border-radius: 5px;
   border-style: solid;
   border-color: black;
-  padding: 5px;
 }
+
+#deep {
+  font-size: 1px;
+  text-align:left;
+  color: transparent;
+}
+
+#deep:hover {
+  color: white;
+}
+
 
 .love2d {
   grid-area: slot5;
