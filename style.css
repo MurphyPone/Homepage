@@ -86,13 +86,13 @@
   border-color: black;
   padding: 5px;
 
-  background: linear-gradient(white, white 50%, #332171 50%, #332171);
+  /* background: linear-gradient(white, white 50%, #332171 50%, #332171);
   background-size: 100% 200%;
-  transition: all 0.2s ease;
+  transition: all 0.2s ease; */
 }
 
 .about:hover {
-  background-position: 100% 100%;
+  /* background-position: 100% 100%;
   color: white;
   /* border-color: #e37070; */
   /* border-width: 5px; shuffles content unnecesarily */
@@ -162,6 +162,16 @@
   border-radius: 5px;
   border-style: solid;
   border-color: black;
+  justify-content: center;
+
+  background: linear-gradient(white, white 50%, rgb(136, 136, 136) 50%, black);
+  background-size: 100% 200%;
+  transition: all 0.2s ease;
+}
+
+.PDocs:hover {
+  background-position: 100% 100%;
+  color: white;
 }
 
 #deep {
@@ -187,6 +197,18 @@
   border-color: black;
   padding: 5px;
   cursor: default;
+
+  background-image: url("imgs/love-app-0.10.png");
+  background-size: 75px 75px;
+  background-repeat: no-repeat;
+  background-position: 200%;
+  transition: all 0.2s ease;
+}
+
+.love2d:hover {
+  background-position: center;
+  background-color: white;
+  color: var(--love2d);
 }
 
 .java {
