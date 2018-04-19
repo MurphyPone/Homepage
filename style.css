@@ -123,6 +123,11 @@
   transition: padding-top 1s;
 }
 
+.hackital img {
+  width: auto;
+  height: 60px;
+}
+
 .fill { /*work around to center img */
   align-self: stretch;
   grid-area: slot2;
@@ -162,28 +167,7 @@
   border-radius: 5px;
   border-style: solid;
   border-color: black;
-  justify-content: center;
-
-  background: linear-gradient(white, white 50%, rgb(136, 136, 136) 50%, black);
-  background-size: 100% 200%;
-  transition: all 0.2s ease;
 }
-
-.PDocs:hover {
-  background-position: 100% 100%;
-  color: white;
-}
-
-#deep {
-  font-size: 1px;
-  text-align:left;
-  color: transparent;
-}
-
-#deep:hover {
-  color: white;
-}
-
 
 .love2d {
   grid-area: slot5;
@@ -203,12 +187,6 @@
   background-repeat: no-repeat;
   background-position: 200%;
   transition: all 0.2s ease;
-}
-
-.love2d:hover {
-  background-position: center;
-  background-color: white;
-  color: var(--love2d);
 }
 
 .java {
@@ -326,6 +304,25 @@
     color: #7ae9f0;
     padding-top: 100px;
   }
+
+  .love2d:hover {
+    background-position: center;
+    background-color: white;
+    color: var(--love2d);
+  }
+
+  .PDocs {
+    background: linear-gradient(white, white 50%, rgb(136, 136, 136) 50%, black);
+    background-size: 100% 200%;
+    transition: all 0.2s ease;
+    justify-content: center;
+    padding-top: 50px;
+  }
+
+  .PDocs:hover {
+    background-position: 100% 100%;
+    color: white;
+  }
 }
 
 /* Mobile overrides */
@@ -349,5 +346,42 @@
 
   #expression { /*hide the expression on mobile */
     display: none;
+  }
+
+  .postfix-calc {
+    font-size: 2.5vw;
+  }
+
+  .graphic-design {
+    font-size: 2.5vw;
+  }
+
+  .p5-js {
+    font-size: 2.5vw;
+  }
+
+  .hackbi {
+    font-size: 3.5vw;
+  }
+
+  .love2d {
+    background-image: none;
+    background-position: center;
+    background-color: white;
+    background-color: var(--love2d);
+    color: white;
+  }
+
+  .PDocs {
+    background: black;
+    color: white;
+    padding: 5px;
+    align-self: stretch;
+    font-size: 2vw;
+  }
+
+  .hackital img {
+    height: 40px;
+    width: auto;
   }
 }
