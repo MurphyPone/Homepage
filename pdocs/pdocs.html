@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .head {
+      background: rgb(45, 45, 45);
+      color: white;
+      padding: 1px;
+      text-align: center;
+      font-family: Lato;
+    }
+
+    .about {
+      text-align: center;
+      color: grey;
+    }
+
+    #sws {
+      color: black; /* or transparent */
+    }
+
+    .regular {
+      font-family: Helvetica;
+      color: black;
+      border-top: 3px solid black;
+      border-left: 3px solid black;
+      padding: 5px;
+      margin-bottom: 20px;
+      margin-top: 5px;
+    }
+
+    .scratches {
+      float: left; padding-left: 120px;
+    }
+
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+    var dec;
+    var enc;
+    var count = 0;
+    var x;
+    var str;
+    var content = $.get("sws0.txt", ready); //crucial to use the callback
+    var compson = $.get("compson.txt", comp); //callback to Compson essay
+    var orange = $.get("oranges.txt", oran); //callback to Compson essay
+
+    //Configuration Callbacks
+    function ready() {
+      if(typeof content.responseText != 'undefined') {
+        str = content.responseText;
+        var code = 0;
+        //enc = encr(str);
+        dec = decr(str); ///str or dec
+        //console.log(enc);
+        //console.log(dec);
+      } else {
+        dec = "Faulkner 5 for enlightenment";
+      }
+    }
+
+    function comp() {
+      if(typeof compson.responseText != 'undefined') {
+        str = compson.responseText;
+        document.getElementById("compson").innerHTML = str;
+      } else {
+        document.getElementById("compson").innerHTML = "Loading Compson";
+      }
+    }
+
+    function oran() {
+      if(typeof orange.responseText != 'undefined') {
+        str = orange.responseText;
+        document.getElementById("oranges").innerHTML = str;
+      } else {
+        document.getElementById("oranges").innerHTML = "Loading Oranges";
+      }
+    }
+
+    //animation stuff
+    document.onkeypress = function (e) {
+      x = event.which || event.keyCode;
+      count += x;
+      check();
+    }
+    var $win = $(window);
+    $win.on('scroll', function() {
+      var top = $win.scrollTop();
+      $('.globe').css('transform', 'rotate(' + top/4 + 'deg)');
+      var target = $(".scratches").offset().top;
+      var hand = map(top, target-300, target-50, 0, 1);  //This changes...
+      $('.scratches').css('opacity', hand);
+      $('.slide').css("margin-left", ""+top/15+"px");
+    });
+
+    function map(n, start1, stop1, start2, stop2) {
+      return ((n-start1)/(stop1-start1))*(stop2-start2)+start2;
+    };
+
+    function encr(str) {
+      var code = 0;
+      var result = "";
+      for (var i = 0; i < str.length; i++) {
+        code = str.charCodeAt(i) + 1;
+        result += String.fromCharCode(code);
+      }
+      return result;
+    }
+
+    function decr(str) {
+      var code = 0;
+      var result = "";
+      for (var i = 0; i < str.length; i++) {
+        code = str.charCodeAt(i) - 1;
+        result += String.fromCharCode(code);
+      }
+      return result;
+    }
+
+    //Toggle function //TODO modularize or make one for every entry :/
+    function toggleCompson(id) {
+      if(document.getElementById(id).innerHTML == "") {
+        document.getElementById(id).innerHTML = compson.responseText; //This can't be modularized unless --> []
+      } else {
+        document.getElementById(id).innerHTML = "";
+      }
+    }
+
+    function toggleOrange(id) {
+      if(document.getElementById(id).innerHTML == "") {
+        document.getElementById(id).innerHTML = orange.responseText; //This can't be modularized unless --> []
+      } else {
+        document.getElementById(id).innerHTML = "";
+      }
+    }
+
+    function check() {
+      if(count == 1575) {
+        document.getElementById("sws").innerHTML = dec;
+      } else {
+        document.getElementById("sws").innerHTML = "<del>[SCRATCHES]</del>";
+      }
+      if(x == 113) {
+        count = 0;
+      }
+    }
+
+    function mobile() {
+      if (count == 1575)
+        count = 0;
+      else
+        count = 1575;
+      check();
+    }
+
+  </script>
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+</head>
+<body>
+  <div class="head">
+    <h1><em>Plots' Platitudes</em></h1>
+    <div class="about">
+      <h4 style="color: white;"> Not meant for mobile consumption.</h3>
+      <h5> Notepad, blog, doodle book, repository.  This is some stuff I've written.</h3>
+    </div>
+  </div>
+
+  <div class="regular">
+    <h1 style="text-align: center;" onclick="toggleOrange('oranges')">On the Subject of Comparing Apples and Oranges</h1>
+    <div id="oranges">Loading Oranges</div>
+  </div>
+
+  <!--  filler -->
+  <div class="regular">
+    <h1 style="text-align: center;">Milton Friedman, Karl Marx, and Schrodinger's Cat: The Foundation of Society</h1>
+    <a href="subdomain/subd.html">PROOF</a>
+    <PRE>
+    Marx - The collective masses which compose society can be trusted
+    Friedman - The individual cannot be trusted, but should have the opportunity - leadership
+    Schrodinger - You can’t tell until you observe the individual
+
+      Given the logistical inconveniences of assessing every individual within a set of people in order
+    to determine which <i>organization scheme</i> to found a civilization around, which of the two approaches is more efficacious?
+    Which of the two is moral?
+    </PRE>
+  </div>
+
+  <div class="regular">
+    <h2 style="text-align: center;" onclick="toggleCompson('compson')">The Deafening Sound of Life : A Comparison of the Compson Brother’s Reactions to Tragedy</h2>
+    <div id="compson">Loading Compson</div>
+  </div>
+
+  <div class="regular">
+    <PRE id="sws"><del>[SCRATCHES]</del></PRE>
+  </div>
+
+</body>
+</html>
