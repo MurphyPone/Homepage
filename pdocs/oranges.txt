@@ -15,7 +15,7 @@
     to the individual affected.</p>
 
     <p style="font-family: Courier; font-size: 10pt; text-indent: 30pt;">Luckily for the indecisive and hungry thinkers of the 21st century who find themselves stuck between the ongoing
-    internal struggle between red and orange, the German philosopher Edmund Husserl pioneered an appropriate framework
+    internal struggle between red and orange, the German philosopher <a href='javascript:;' onclick='mobile();' style="text-decoration: none; color: black;">Edmund Husserl</a> pioneered an appropriate framework
     which can be used to begin to assess such seeming equivalencies as apples and oranges known as phenomenology.
     In attempting to achieve an objective determination, Husserl thought it was first necessary to not only acknowledge
     our own subjective biases which impact our decision making, but to embrace them, so as to strip away all the additives
@@ -27,7 +27,7 @@
     tantamount produce, a relativistic structure of thought can be used to reveal the the solution as to which fruit we ought
     to choose.  Whereas Husserl’s phenomenological approach still attempts to yield an objective answer through acknowledgement
     and subsequent removal of subjective factors, I think that these subjective factors provide the most informative measure
-    of a fruit’s efficacy to <a href='javascript:;' onclick='mobile();' style="text-decoration: none; color: black;">satiate</a> the individual’s desire.</p>
+    of a fruit’s efficacy to satiate the individual’s desire.</p>
     <p style="font-family: Courier; font-size: 10pt; text-indent: 30pt;">When picking between an apple and an orange, perspective is everything.  Edmund Husserl’s phenomenological approach to
     analyzing the nature of an experience according to the extensive context by which it is observed can only get us so far
     when examining things of such little consequence as fruits.  When faced with the crux of Granny Smith or Clementine, and

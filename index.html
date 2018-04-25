@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta name="keywords" content="Peter Murphy, Peter, Murphy, Hack BI">
   <meta name="description" content="Peter Murphy Homepage">
@@ -8,16 +9,21 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <!--link rel="icon" href="imgs/icon-sm.png" -->
   <link rel="stylesheet" href="style.css">
-  <script src="script.js"></script>
+  <script language="javascript" type="text/javascript" src="p5.js"></script>
+  <script language="javascript" type="text/javascript" src="DNA.js"></script>
+  <script language="javascript" type="text/javascript" src="population.js"></script>
+  <script language="javascript" type="text/javascript" src="script.js"></script>
+  <script async src="https://www.youtube.com/iframe_api"></script>
   <title> Peter Murphy's Homepage </title>
 </head>
+
 <body style="background-color: var(--offwhite);">
 
   <div class="grid">
 
     <div class="about">
-      <img src="http://hackbi.org/img/peter.jpeg" alt="Profile Image" style="width:300px;height:auto;">
-      <h5> Hi! My name is Peter Murphy and this is my website! <br><br> If it looks like I just learned CSS and want to show off every trick I know - it's because I did.</h5>
+      <img src="imgs/peter.jpeg" alt="Profile Image" style="width:300px;height:auto; border-radius: 5px;">
+      <h5 style="margin: 1px;"> Hi! My name is Peter Murphy and this is my website! <br> If it looks like I just learned CSS - <s>it's because I did.</s>.</h5>
     </div>
 
     <div class="hackbi">
@@ -39,19 +45,23 @@
     </div>
 
     <div class="java">
-      <h3 onclick="window.open('https://github.com/MurphyPone');">GitHub</h3>
+      <h3 onclick="window.open('https://github.com/MurphyPone');" style="text-shadow: 2px 2px 5px black;">GitHub</h3>
+      <!-- in order to center text, but also big, make it an h1,2,3... but then set its font-size: 4vw;-->
     </div>
 
-    <div class="youtube">
-      <h3 id="youtube" onclick="window.open('https://www.youtube.com/watch?v=gFFOQ3iGoIw');"> Plotsmurphy </h3>
+    <div id="ytVid" class="youtube" onload="onYouTubeIframeAPIReady()" onclick="window.open('https://www.youtube.com/user/plotsmurphy')">
     </div>
 
     <div class="graphic-design" onclick="window.open('gdp/gdp.html')">
       <h3>Graphic Design "portfolio"</h3>
     </div>
 
-    <div class="p5-js">
-      <h3>p5.js</h3>
+    <div class="blog" onclick="window.open('https://murphypone.github.io/code-blog/')">
+      <h5>Code Blog</h5>
+    </div>
+
+    <div class="odds-evens" onclick="window.open('https://murphypone.github.io/OddsEvens/')">
+      <h5>Odds Evens!</h5>
     </div>
 
     <div class="postfix-calc">
@@ -59,13 +69,23 @@
       <h4 id="expression"> 1 0 / = ∞ </h4>
     </div>
 
-    <div class="footer">
-      <h4>Painstakingly made by hand - 4.15.2018</h4>
-      <a href="https://twitter.com/petersmurphy7" target="_blank" class="fa fa-twitter make-translucent"></a>
-      <a href="https://www.instagram.com/petersmurphy7" target="_blank" class="fa fa-instagram make-translucent"></a>
-      <a href="mailto:petersmurphy7@gmail.com?subject=I found a bug in your website!" class="fa fa-envelope make-translucent"></a>
-      <h4>Report a problem! <br> there are probably lots</h4>
+    <div class="tic-tac-toe">
+        <h3 onclick="window.open('https://murphypone.github.io/TicTacToeJS/');">TicTacToe Hash Function</h3>
+    </div>
+
+    <div class="WotD">
+        <h3><u>Word of the Day!</u></h3>
+        <h3 id="WotD" onclick="window.open('https://murphypone.github.io/GenAlgWordGuesser/');">Word of the Day!</h3>
+        <h5 id="stats">stats</h5>
     </div>
   </div>
+  <div class="footer">
+    <h4>Painstakingly made by hand - 12.14.2018</h4>
+    <a href="https://twitter.com/petersmurphy7" target="_blank" class="fa fa-twitter make-translucent"></a>
+    <a href="https://www.instagram.com/petersmurphy7" target="_blank" class="fa fa-instagram make-translucent"></a>
+    <a href="mailto:petersmurphy7@gmail.com?subject=I found a bug in your website!" class="fa fa-envelope make-translucent"></a>
+    <h4>Report a problem! <br> there are probably lots</h4>
+  </div>
 </body>
+
 </html>

@@ -1,4 +1,5 @@
 /* GRID ANIMATION SETUP */
+
 @keyframes fade-in-right {
   from {
     opacity: 0;
@@ -20,6 +21,7 @@
 }
 
 /* CUSTOM FONTs */
+
 @font-face {
   font-family: 'Jaapokki';
   src: url('fonts/Jaapokki-Regular.otf'), url('/fonts/Jaapokki-Regular.otf');
@@ -30,14 +32,28 @@
   src: url('fonts/LemonMilkbold.otf'), url('/fonts/LemonMilkbold.otf');
 }
 
+@font-face {
+      font-family: 'Conductive';
+      src: url('Conductive.ttf'), url('Conductive.ttf');
+}
+
 /* CUSTOM COLOR VARIABLES */
-:root { /*declare color vars for use elsewhere */
-	--offwhite: #f9f9f9; /* offwhite */
-  --hackbi: #fc4d45;  /* red */
-  --hacktj: #1faff1;  /* blue */
-  --love2d: #e74a99; /* pink */
-  --l-orange: #ff9340;  /* Orange */
-	--very-dark-grey: rgb(51, 51, 51);  /* Gray */
+
+:root {
+  /*declare color vars for use elsewhere */
+  --offwhite: #f9f9f9;
+  /* offwhite */
+  --hackbi: #fc4d45;
+  /* red */
+  --hacktj: #1faff1;
+  /* blue */
+  --love2d: #e74a99;
+  /* pink */
+  --l-orange: #ff9340;
+  /* Orange */
+  --very-dark-grey: rgb(51, 51, 51);
+  /* Gray */
+  --green: #92f165;
 }
 
 .html {
@@ -46,27 +62,17 @@
 }
 
 /* GRID */
+
 .grid {
   display: grid;
   width: 100%;
   height: 100%;
-  text-align: center; /* aligns the text of all componenets */
+  text-align: center;
+  /* aligns the text of all componenets */
   grid-template-columns: 1fr;
   grid-template-rows: repeat(1fr 9);
-  grid-template-areas:
-  "about"
-  "slot1"
-  "slot2"
-  "slot3"
-  "slot4"
-  "slot5"
-  "slot6"
-  "slot7"
-  "slot8"
-  "slot9"
-  "footer";
+  grid-template-areas: "about" "slot1" "slot2" "slot3" "slot4" "slot5" "slot10" "slot6" "slot7" "slot8" "slot9" "footer";
   grid-gap: 5px;
-
   /* this is so extra but I love it hahahahahah */
   /* https://hackernoon.com/how-to-create-fancy-revealing-animations-with-these-simple-css-tricks-5b34614ae69a */
   transform: scaleX(0);
@@ -76,6 +82,7 @@
 }
 
 /* ABOUT */
+
 .about {
   grid-area: about;
   background: white;
@@ -85,7 +92,6 @@
   border-style: solid;
   border-color: black;
   padding: 5px;
-
   /* background: linear-gradient(white, white 50%, #332171 50%, #332171);
   background-size: 100% 200%;
   transition: all 0.2s ease; */
@@ -99,6 +105,7 @@
 }
 
 /* HACKBI */
+
 .hackbi {
   grid-area: slot1;
   background: var(--hackbi);
@@ -128,10 +135,12 @@
   height: 60px;
 }
 
-.fill { /*work around to center img */
+.fill {
+  /*work around to center img */
   align-self: stretch;
   grid-area: slot2;
-  background: black;  /* black and hackital logo */
+  background: black;
+  /* black and hackital logo */
   border-radius: 5px;
   border-style: solid;
   border-color: black;
@@ -160,7 +169,7 @@
 
 .PDocs {
   grid-area: slot4;
-  background: var(--hacktj);
+  background-color: black; /* make this uniform */
   color: white;
   font-family: Courier;
   align-self: stretch;
@@ -169,8 +178,74 @@
   border-color: black;
 }
 
-.love2d {
+.blog {
   grid-area: slot5;
+  background: rgb(35, 149, 238);
+  color: white;
+  font-family: Jaapokki;
+  font-size: 4vw;
+  align-self: stretch;
+  border-radius: 5px;
+  border-style: solid;
+  border-color: black;
+}
+
+.odds-evens {
+  grid-area: slot10;
+  background: linear-gradient(to bottom right, #de9d2d 0%, #de9d2d 35%, #2db4de 65%, #2db4de 100%);
+  color: white;
+  font-family: Conductive;
+  font-size: 4vw;
+  align-self: stretch;
+  border-radius: 5px;
+  border-style: solid;
+  border-color: black;
+}
+
+.java {
+  grid-area: slot6;
+  background: #680c80;
+  color: white;
+  font-family: Jaapokki;
+  font-size: 4vw;
+  align-self: stretch;
+  border-radius: 5px;
+  border-style: solid;
+  border-color: black;
+}
+
+.youtube {
+  grid-area: slot7;
+  align-self: stretch;
+  border-radius: 5px;
+  border-style: solid;
+  border-color: black;
+  padding: 0px;
+}
+
+iframe {
+  border-radius: 5px;
+  border-style: solid;
+  border-color: black;
+}
+
+.graphic-design {
+  grid-area: slot8;
+  background-image: url("https://66.media.tumblr.com/6d660871e0cd72d61d5856832fee36ef/tumblr_onwotjvnF51ql6gsqo1_540.gif");
+  color: rgb(147, 127, 74);
+  /* make a gif of arrows or something original */
+  font-family: Jaapokki;
+  font-size: 2vw;
+  align-self: stretch;
+  border-radius: 5px;
+  border-style: solid;
+  border-color: black;
+  padding: 5px;
+  cursor: default;
+}
+
+.love2d {
+  grid-area: slot9;
   background: var(--love2d);
   color: white;
   font-family: Jaapokki;
@@ -181,7 +256,6 @@
   border-color: black;
   padding: 5px;
   cursor: default;
-
   background-image: url("imgs/love-app-0.10.png");
   background-size: 75px 75px;
   background-repeat: no-repeat;
@@ -189,41 +263,11 @@
   transition: all 0.2s ease;
 }
 
-.java {
-  grid-area: slot6;
-  background: #680c80; /*eclipse purple??? */
-  color: white;
-  font-family: Jaapokki;
-  font-size: 2vw;
-  align-self: stretch;
-  border-radius: 5px;
-  border-style: solid;
-  border-color: black;
-  padding: 5px;
-}
-
-/* YOUTUBE STUFF */
-
-.youtube {
-  grid-area: slot7;
-  background: var(--very-dark-grey);
-  color: white;
-  font-family: LemonMilk;
-  font-size: 2vw;
-  align-self: stretch;
-  text-align: center;
-  border-radius: 5px;
-  border-style: solid;
-  border-color: black;
-  padding: 5px;
-}
-
-
-.graphic-design {
-  grid-area: slot8;
-  background-image: url("http://i.imgur.com/uujoS2S.gif"); /* http://i.imgur.com/uujoS2S.gif */
-  color: rgb(147, 127, 74); /* make a gif of arrows or something original */
-  font-family: Jaapokki;
+.tic-tac-toe {
+  grid-area: slot11;
+  background: var(--green);
+  color: black;
+  font-family: Helvetica;
   font-size: 2vw;
   align-self: stretch;
   border-radius: 5px;
@@ -233,29 +277,44 @@
   cursor: default;
 }
 
-.p5-js {
-  grid-area: slot9;
-  background: var(--hackbi);
+.WotD {
+  grid-area: slot12; /* so we're just gonna ignore the way the whole grid is broken...*/
+  background: var(--very-dark-grey);
   color: white;
-  font-family: Jaapokki;
-  font-size: 4vw;
+  font-family: Courier;
+  font-size: 2vw;
   align-self: stretch;
   border-radius: 5px;
   border-style: solid;
   border-color: black;
+  padding: 5px;
+  cursor: default;
+}
+
+#stats {
+  text-align: left;
+  font-weight: 200;
 }
 
 .footer {
-  grid-area: footer;
+  /*grid-area: footer; */
   background: var(--offwhite);
   color: black;
   font-family: Metrophobic;
+  margin-top: 5px; /*TODO while grids are broken, this is necessary */
   border-radius: 5px;
   border-style: solid;
   border-color: black;
+  text-align: center;
+}
+
+.footer h4 {
+    margin: 2px;
+    padding: 2px;
 }
 
 /* ICONS */
+
 .fa {
   color: gray;
   text-decoration: none;
@@ -264,30 +323,30 @@
 }
 
 .fa:hover {
-    opacity: 0.7;
-    text-decoration: none;
+  opacity: 0.7;
+  text-decoration: none;
 }
 
 /* COMPATIBILITY */
 
 /* Desktop adjustments */
+
 @media screen and (min-width: 1200px) {
   .grid {
     width: 100%;
     height: auto;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr; /*220 = no scrolling, but causes compatibility issues... */
-    grid-template-areas:
-    "about slot1 slot2 slot3"
-    "about slot4 slot5 slot6"
-    "footer slot7 slot8 slot9"  /* for desktop */
-    /* manually set height to 311 x 280 or even a smaller height */
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas:  "about slot1 slot2 slot3"
+                          "slot10 slot9 slot5 slot6"
+                          "slot11 slot7 slot8 slot4"
+                          "slot12 slot12 slot12 slot12" /* until more modules are added, slot12 occupies whole bottom row*/
+                          "footer footer footer footer";
+                          /* for desktop */
   }
-
   .fill:hover .hackital {
     padding-top: 145px;
   }
-
   .postfix-calc {
     font-size: 2vw;
   }
@@ -296,21 +355,11 @@
     color: orange;
   }
 
-  #youtube {
-    transition: padding-top 1s;
-  }
-
-  .youtube:hover #youtube {
-    color: #7ae9f0;
-    padding-top: 100px;
-  }
-
   .love2d:hover {
     background-position: center;
     background-color: white;
     color: var(--love2d);
   }
-
   .PDocs {
     background: linear-gradient(white, white 50%, rgb(136, 136, 136) 50%, black);
     background-size: 100% 200%;
@@ -318,52 +367,53 @@
     justify-content: center;
     padding-top: 50px;
   }
-
   .PDocs:hover {
     background-position: 100% 100%;
     color: white;
   }
+  .blog {
+    background: rgb(35, 149, 238);
+    color: white;
+    justify-content: center;
+  }
+  .java {
+    background: repeating-linear-gradient( 45deg, #680c80, #680c80 5%, #cfcfcf 5%, #cfcfcf 10%);
+    background-size: 100% 200%;
+    transition: all 0.2s ease;
+    color: white;
+  }
+  .java:hover {
+    background-position: 100% 100%;
+  }
 }
 
 /* Mobile overrides */
+
 @media screen and (max-width: 767px) {
   .grid {
-    grid-template-columns: 1fr; /* 4 columns of equal size */
-    grid-template-rows: repeat(1fr 9);
-    grid-template-areas:
-    "about"
-    "slot1"
-    "slot2"
-    "slot3"
-    "slot4"
-    "slot5"
-    "slot6"
-    "slot7"
-    "slot8"
-    "slot9"
-    "footer";
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(1fr 12); /* however many slots*/
+    grid-template-areas: "about" "slot1" "slot2" "slot3" "slot4" "slot5" "slot10" "slot11" "slot12" "slot6" "slot7" "slot8" "slot9" "footer";
   }
-
-  #expression { /*hide the expression on mobile */
+  #expression {
+    /*hide the expression on mobile */
     display: none;
   }
-
+  .youtube {
+    padding: 5px;
+    font-family: LemonMilk;
+    color: white;
+    background-color: gray;
+  }
   .postfix-calc {
     font-size: 2.5vw;
   }
-
   .graphic-design {
     font-size: 2.5vw;
   }
-
-  .p5-js {
-    font-size: 2.5vw;
-  }
-
   .hackbi {
     font-size: 3.5vw;
   }
-
   .love2d {
     background-image: none;
     background-position: center;
@@ -371,7 +421,6 @@
     background-color: var(--love2d);
     color: white;
   }
-
   .PDocs {
     background: black;
     color: white;
@@ -379,9 +428,18 @@
     align-self: stretch;
     font-size: 2vw;
   }
-
+  .blog {
+    background: rgb(35, 149, 238);
+    color: white;
+    padding: 5px;
+    align-self: stretch;
+    font-size: 4vw;
+  }
   .hackital img {
     height: 40px;
     width: auto;
+  }
+  .java {
+    font-size: 4vw;
   }
 }

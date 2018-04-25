@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
+
 <head>
+  <title>Plot's Docs</title>
   <style>
     .head {
       background: rgb(45, 45, 45);
@@ -16,7 +18,24 @@
     }
 
     #sws {
-      color: black; /* or transparent */
+      color: black;
+    }
+
+    #r {
+      background-color: black;
+      -webkit-touch-callout: none;
+      /* iOS Safari */
+      -webkit-user-select: none;
+      /* Safari */
+      -khtml-user-select: none;
+      /* Konqueror HTML */
+      -moz-user-select: none;
+      /* Firefox */
+      -ms-user-select: none;
+      /* Internet Explorer/Edge */
+      user-select: none;
+      /* Non-prefixed version, currently
+                                    supported by Chrome and Opera */
     }
 
     .regular {
@@ -30,7 +49,43 @@
     }
 
     .scratches {
-      float: left; padding-left: 120px;
+      float: left;
+      padding-left: 120px;
+    }
+
+    .column {
+      float: left;
+      width: 45%;
+      padding: 10px;
+      font-family: Lato;
+    }
+
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    #myBtn {
+      display: none; /* Hidden by default */
+      font-family: Courier;
+      position: fixed; /* Fixed/sticky position */
+      bottom: 20px; /* Place the button at the bottom of the page */
+      right: 30px; /* Place the button 30px from the right */
+      z-index: 99; /* Make sure it does not overlap */
+      border: none; /* Remove borders */
+      outline: black; /* Remove outline */
+      background-color: white; /* Set a background color */
+      color: black; /* Text color */
+      cursor: pointer; /* Add a mouse pointer on hover */
+      padding: 7px; /* Some padding */
+      border-radius: 3px; /* Rounded corners */
+      font-size: 18px; /* Increase font size */
+    }
+
+    #myBtn:hover {
+      background-color: black; /* Add a dark-grey background on hover */
+      color: white;
     }
 
   </style>
@@ -43,24 +98,30 @@
     var str;
     var content = $.get("sws0.txt", ready); //crucial to use the callback
     var compson = $.get("compson.txt", comp); //callback to Compson essay
-    var orange = $.get("oranges.txt", oran); //callback to Compson essay
+    var naguib = $.get("Naguib.txt", mahf); //callback to Naguib essay
+    var orange = $.get("oranges.txt", oran); //callback to Orange essay
+    var john = $.get("john.txt", jon); //callback to John essay
+    var hebrews = $.get("hebrews.txt", heb); //callback to hebrews essay
+    var rlcl = $.get("RLCL2424.html", rel); //callback to thebible
+
+    var pw = 877;
 
     //Configuration Callbacks
     function ready() {
-      if(typeof content.responseText != 'undefined') {
+      if (typeof content.responseText != 'undefined') {
+        toggleAll(); //start with all the tabs closed
         str = content.responseText;
         var code = 0;
         //enc = encr(str);
-        dec = decr(str); ///str or dec
+        dec = decr(str) //decr(str) //decr(str) //decr(str)  str or dec
         //console.log(enc);
-        //console.log(dec);
       } else {
         dec = "Faulkner 5 for enlightenment";
       }
     }
 
     function comp() {
-      if(typeof compson.responseText != 'undefined') {
+      if (typeof compson.responseText != 'undefined') {
         str = compson.responseText;
         document.getElementById("compson").innerHTML = str;
       } else {
@@ -68,8 +129,17 @@
       }
     }
 
+    function mahf() {
+      if (typeof naguib.responseText != 'undefined') {
+        str = naguib.responseText;
+        document.getElementById("naguib").innerHTML = str;
+      } else {
+        document.getElementById("naguib").innerHTML = "Loading Naguib";
+      }
+    }
+
     function oran() {
-      if(typeof orange.responseText != 'undefined') {
+      if (typeof orange.responseText != 'undefined') {
         str = orange.responseText;
         document.getElementById("oranges").innerHTML = str;
       } else {
@@ -77,24 +147,54 @@
       }
     }
 
+    function jon() {
+      if (typeof john.responseText != 'undefined') {
+        str = john.responseText;
+        document.getElementById("john").innerHTML = str;
+      } else {
+        document.getElementById("john").innerHTML = "Loading John";
+      }
+    }
+
+    function heb() {
+      if (typeof hebrews.responseText != 'undefined') {
+        str = hebrews.responseText;
+        document.getElementById("hebrews").innerHTML = str;
+      } else {
+        document.getElementById("hebrews").innerHTML = "Loading hebrews";
+      }
+    }
+
+    function rel() {
+      if (typeof rlcl.responseText != 'undefined') {
+        str = rlcl.responseText;
+        document.getElementById("RLCL").innerHTML = str;
+      } else {
+        document.getElementById("RLCL").innerHTML = "Loading The New Testament";
+      }
+    }
+
     //animation stuff
-    document.onkeypress = function (e) {
+    document.onkeypress = function(e) {
       x = event.which || event.keyCode;
       count += x;
       check();
     }
+
     var $win = $(window);
     $win.on('scroll', function() {
-      var top = $win.scrollTop();
-      $('.globe').css('transform', 'rotate(' + top/4 + 'deg)');
-      var target = $(".scratches").offset().top;
-      var hand = map(top, target-300, target-50, 0, 1);  //This changes...
-      $('.scratches').css('opacity', hand);
-      $('.slide').css("margin-left", ""+top/15+"px");
+      if (count == pw) { //Prevents the whack errors being thrown
+        var top = $win.scrollTop();
+        $('.globe').css('transform', 'rotate(' + top / 4 + 'deg)');
+        var target = $(".scratches").offset().top;
+        var hand = map(top, target - 300, target - 50, 0, 1); //This changes...
+        $('.scratches').css('opacity', hand);
+        $('.slide').css("margin-left", "" + top/22 + "px");
+      }
     });
 
     function map(n, start1, stop1, start2, stop2) {
-      return ((n-start1)/(stop1-start1))*(stop2-start2)+start2;
+      return ((n - start1) / (stop1 - start1)) * (stop2 - start2) + start2;
     };
 
     function encr(str) {
@@ -119,43 +219,103 @@
 
     //Toggle function //TODO modularize or make one for every entry :/
     function toggleCompson(id) {
-      if(document.getElementById(id).innerHTML == "") {
+      if (document.getElementById(id).innerHTML == "") {
         document.getElementById(id).innerHTML = compson.responseText; //This can't be modularized unless --> []
       } else {
         document.getElementById(id).innerHTML = "";
       }
     }
 
+    function toggleNaguib(id) {
+      if (document.getElementById(id).innerHTML == "") {
+        document.getElementById(id).innerHTML = naguib.responseText; //This can't be modularized unless --> []
+      } else {
+        document.getElementById(id).innerHTML = "";
+      }
+    }
+
     function toggleOrange(id) {
-      if(document.getElementById(id).innerHTML == "") {
+      if (document.getElementById(id).innerHTML == "") {
         document.getElementById(id).innerHTML = orange.responseText; //This can't be modularized unless --> []
       } else {
         document.getElementById(id).innerHTML = "";
       }
     }
 
+    function toggleJohn(id) {
+      if (document.getElementById(id).innerHTML == "") {
+        document.getElementById(id).innerHTML = john.responseText; //This can't be modularized unless --> []
+      } else {
+        document.getElementById(id).innerHTML = "";
+      }
+    }
+
+    function toggleHebrews(id) {
+      if (document.getElementById(id).innerHTML == "") {
+        document.getElementById(id).innerHTML = hebrews.responseText; //This can't be modularized unless --> []
+      } else {
+        document.getElementById(id).innerHTML = "";
+      }
+    }
+
+    function toggleRLCL(id) {
+      if (document.getElementById(id).innerHTML == "") {
+        document.getElementById(id).innerHTML = rlcl.responseText; //This can't be modularized unless --> []
+        adjust();
+      } else {
+        document.getElementById(id).innerHTML = "";
+      }
+    }
+
+    function toggleAll() {
+      toggleCompson('compson');
+      toggleNaguib('naguib');
+      toggleOrange('oranges');
+      toggleJohn('john');
+      toggleHebrews('hebrews');
+      toggleRLCL('RLCL');
+    }
+
     function check() {
-      if(count == 1575) {
+      if (count == pw) {
         document.getElementById("sws").innerHTML = dec;
       } else {
         document.getElementById("sws").innerHTML = "<del>[SCRATCHES]</del>";
       }
-      if(x == 113) {
+      if (x == 113) {
         count = 0;
       }
     }
 
     function mobile() {
-      if (count == 1575)
+      if (count == pw)
         count = 0;
       else
-        count = 1575;
+        count = pw;
       check();
+    }
+    //Scroll for NT doc
+    window.onscroll = function() { scrollFunction(); }
+
+    function scrollFunction() {
+      var ntHeader = $("#RLCL").offset().top;
+      if (document.body.scrollTop > ntHeader || document.documentElement.scrollTop > ntHeader) {
+        document.getElementById("myBtn").style.display = "block";
+      } else {
+        document.getElementById("myBtn").style.display = "none";
+      }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+      document.body.scrollTop = $("#RLCL").offset().top;; // For Safari
+      document.documentElement.scrollTop = $("#RLCL").offset().top;; // For Chrome, Firefox, IE and Opera
     }
 
   </script>
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 </head>
+
 <body>
   <div class="head">
     <h1><em>Plots' Platitudes</em></h1>
@@ -172,22 +332,78 @@
 
   <!--  filler -->
   <div class="regular">
-    <h1 style="text-align: center;">Milton Friedman, Karl Marx, and Schrodinger's Cat: The Foundation of Society</h1>
-    <a href="subdomain/subd.html">PROOF</a>
-    <PRE>
-    Marx - The collective masses which compose society can be trusted
-    Friedman - The individual cannot be trusted, but should have the opportunity - leadership
-    Schrodinger - You can’t tell until you observe the individual
+    <h1 style="text-align: center;" onclick="toggleJohn('john')">Understanding the Christology of the Gospel of John: The Bread of Life</h1>
+    <div id="john">Loading John</div>
+  </div>
 
-      Given the logistical inconveniences of assessing every individual within a set of people in order
-    to determine which <i>organization scheme</i> to found a civilization around, which of the two approaches is more efficacious?
-    Which of the two is moral?
-    </PRE>
+  <div class="regular">
+    <h1 style="text-align: center;" onclick="toggleHebrews('hebrews')">Justification by Faith: The Letter to the Hebrews</h1>
+    <div id="hebrews">Loading Hebrews</div>
   </div>
 
   <div class="regular">
     <h2 style="text-align: center;" onclick="toggleCompson('compson')">The Deafening Sound of Life : A Comparison of the Compson Brother’s Reactions to Tragedy</h2>
     <div id="compson">Loading Compson</div>
+  </div>
+
+  <div class="regular">
+    <h1 style="text-align: center;" onclick="toggleNaguib('naguib')">The Post-Revolutionary Literary Revolutionary</h1>
+    <div id="naguib">Loading Naguib</div>
+  </div>
+
+  <div class="regular">
+    <h1 style="text-align: center;" onclick="toggleRLCL('RLCL')">The New Testament at a Glance<sup><sup>albeit an extended glance</sup></sup></h1>
+    <div id="RLCL">Loading The New Testament</div>
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+</div>
+
+
+  <div class="regular">
+    <h2 style="text-align: center;">Reading List</h2>
+    <i>So that I don't forget what was good, and what I still need to read.</i>
+    <div class="row">
+      <div class="column">
+        <h3>Fiction</h3>
+        <ul>
+          <li><i>The Sound and the Fury</i> - William Faulkner</li>
+          <li><i>The Thief and the Dogs</i> - Naguib Mahfouz</li>
+          <li><i>The Trial</i> - Franz Kafka</li>
+          <li><i>The Stand</i> - Stephen King</li>
+          <li><i>And Every Morning the Way Home Gets Longer and Longer</i> - Frederick Backman</li>
+          <li><i>The Tapestry Series</i> - Henry Neff</li>
+          <li><i>VALIS</i> - Philip K. Dick</li>
+          <li><i>The Tragedy of Hamlet, Prince of Denmark</i> - William Shakespeare</li>
+          <li><i>Oryx and Crake</i> - Margaret Atwood</li>
+          <li><i>Timequake</i> - Kurt Vonnegut</li>
+          <li><i>Mistborn</i> - Brandon Sanderson</li>
+          <li><i>Different Seasons</i> - Stepehen King</li>
+          <li><i>A Question of Upbringing</i> - Anthony Powell</li>
+          <li><i>Flowers for Algernon</i> - Daniel Keyes</li>
+          <li><i>Full Dark</i> - Stephen King</li>
+        </ul>
+      </div>
+      <div class="column">
+        <h3>Non-Fiction</h3>
+        <ul>
+          <li><i>A Passion for Leadership</i> - Robert Gates</li>
+          <li><i>The Gulag Archipelago</i> - Aleksandr Solzhenitsyn</li>
+          <li><i>The Will to Power</i> - Friedrich Nietzsche</li>
+          <li><i>The Forgotten Soldier</i> - Guy Sajer</li>
+          <li><i>Maps of Meaning</i> - Jordan Peterson</li>
+          <li><i>The Meditations</i> - Marcus Aurelius</li>
+          <li><i>The Brothers Karamazov</i> - Fyodor Dostoyevsky</li>
+          <li><i>The Cataline Orations</i> - Cicero</li>
+          <li><i>The Encyclopedia Logic</i> - G.W.F. Hegel</li>
+          <li><i>The Stranger</i> - Albert Camu</li>
+          <li><i>Gödel, Escher, Bach: an Eternal Golden Braid</i> - Douglas Hofstadter</li>
+          <li><i>I Am a Strange Loop</i> - Douglas Hofstadter</li>
+          <li><i>How to Make Friends and Influence People</i> - Dale Carnegie</li>
+          <li><i>Principles</i> - Ray Dalio</li>
+          <li><i>The Intelligent Investor</i> - Benjamin Graham</li>
+          <li><i>Rich Dad Poor Dad</i> - Robert Kiyosaki and Sharon Lechter</li>
+        </ul>
+      </div>
+    </div>
   </div>
 
   <div class="regular">
