@@ -1,0 +1,94 @@
+@font-face {
+  font-family: 'Metrophobic';
+  src: url('Metrophobic-Regular.ttf'), url('Metrophobic-Regular.otf');
+}
+
+header {
+  text-align: center;
+  font-size: 25px;
+  font-family: Metrophobic;
+  background: #424358;
+  color: white;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: repeat(3 1fr);
+  grid-gap: 15px;
+  background: #e8e8e8;
+}
+
+.left-col {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.left-col header {
+  background: orange;
+}
+
+.mid-col {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.mid-col header {
+  background: #f67bf5;
+}
+
+.right-col {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.right-col header {
+  background: #3ad2d6;
+}
+
+.trigger {
+  width: 100%;
+  height: auto;
+}
+
+.trigger:hover #image {
+  width: 95%;
+}
+
+.trigger:hover #lbl {
+  display: block;
+}
+
+#image {
+  width: 100%;
+  height: auto;
+  transition: width .5s;
+  /* transition: all .5s ease-in-out; */
+  align-self: center;
+  display: block;
+  margin: 0 auto;
+}
+
+#lbl {
+  font-family: Metrophobic;
+  display: none;
+  text-align: center;
+  margin: 10px;
+  font-size: 20px;
+}
+
+footer {
+  text-align: center;
+  font-size: 2vw;
+  font-family: Metrophobic;
+  background: #424358;
+  color: white;
+  padding: 1px;
+}
+
+footer a {
+  text-decoration: none;
+  color: white;
+}
