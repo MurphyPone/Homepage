@@ -48,7 +48,7 @@ let population;
 var waitt = 0;
 
 function altMethod() {
-  var fileName = "pdocs/words.txt";
+  var fileName = "iBlog/words.txt";
   var lines;
 
   var result = fetch(fileName).then((response) => {
@@ -83,7 +83,7 @@ function setWord(data) {
 function setup() {
   var server_url = "https://learn-the-wotd.herokuapp.com/test";
   // BROKEN too loadStrings(server_url, setWord);
-  target = altMethod(); //loadStrings("pdocs/words2.txt", setWord);
+  target = altMethod(); //loadStrings("iBlog/words2.txt", setWord);
   //altMethod();
   // Create a population with a target phrase, mutation rate, and population max
   population = new Population(target, mutationRate, popmax);

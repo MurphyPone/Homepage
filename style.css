@@ -167,11 +167,11 @@
   font-family: Metrophobic;
 }
 
-.PDocs {
+.iBlog {
   grid-area: slot4;
-  background-color: black; /* make this uniform */
-  color: white;
-  font-family: Courier;
+  background-color: white; /* make this uniform */
+  color: #50B042;
+  font-family: Lato;
   align-self: stretch;
   border-radius: 5px;
   border-style: solid;
@@ -360,14 +360,14 @@ iframe {
     background-color: white;
     color: var(--love2d);
   }
-  .PDocs {
-    background: linear-gradient(white, white 50%, rgb(136, 136, 136) 50%, black);
+  .iBlog {
+    background: linear-gradient(white, white 50%, #50B042 50%, #50B042);
     background-size: 100% 200%;
     transition: all 0.2s ease;
     justify-content: center;
     padding-top: 50px;
   }
-  .PDocs:hover {
+  .iBlog:hover {
     background-position: 100% 100%;
     color: white;
   }
@@ -421,9 +421,9 @@ iframe {
     background-color: var(--love2d);
     color: white;
   }
-  .PDocs {
-    background: black;
-    color: white;
+  .iBlog {
+    background: white;
+    color: #50B042;
     padding: 5px;
     align-self: stretch;
     font-size: 2vw;
